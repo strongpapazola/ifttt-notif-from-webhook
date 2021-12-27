@@ -22,7 +22,7 @@ def rupiah(value):
 while True:
  p = cg.get_price(ids='binancecoin', vs_currencies='idr')
  #{'binancecoin': {'idr': 7748341}}
- if p['binancecoin']['idr'] >= 5000000:
+ if p['binancecoin']['idr'] >= 9000000:
   url = "https://maker.ifttt.com/trigger/moment/with/key/mn-PJ3lpBg7-kX7W5ci3PgfVgublPxk_p4bB5piDmh5"
   payload = json.dumps({
     "value1": rupiah(float(p['binancecoin']['idr']))
@@ -32,5 +32,6 @@ while True:
   }
   response = requests.request("POST", url, headers=headers, data=payload)
   print(response.text)
+  exit()
  sleep(5)
 
